@@ -1,0 +1,83 @@
+﻿<!DOCTYPE html>
+
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link href="~/lib/twitter-bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="/lib/font-awesome/css/all.min.css" rel="stylesheet" />
+
+    <style>
+        #footer {
+            position: fixed;
+            padding: 2px 10px 0px 10px;
+            bottom: 0;
+            width: 100%;
+            /* Height of the footer */
+            height: 50px;
+            background: white;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <!--navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container-fluid">
+
+            <!--This is the code for the "hamburger menu" button -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!--This is the link to the home page - you can leave this as is -->
+            <a class="navbar-brand">
+                <img src="/images/sign-white.png" alt="bg signature" title="bg signature" />
+            </a>
+            <a asp-controller="Home" asp-action="Index" class="navbar-brand">Home</a>
+
+            <!--everything in this section will collapse when the screen is small -->
+            <div class="collapse navbar-collapse" id="nav-content">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown"><a asp-controller="Home" asp-action="Portfolio" class="nav-link">portfolio</a></li>
+                    <li class="nav-item"><a asp-controller="Home" asp-action="Journal" class="nav-link">journal</a></li>
+                    <li class="nav-item"><a asp-controller="Home" asp-action="Austin" class="nav-link">austin</a></li>
+                    <li class="nav-item"><a asp-controller="Home" asp-action="Resume" class="nav-link">resume</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!--main content section of the website -->
+    <div class="container">
+        <!--NOTE: This is where the code from the main view is inserted -->
+        @RenderBody()
+    </div>
+
+    <!--signature at bottom-->
+    <div class="mt-4 mb-4">
+        <img class="w-3 h-auto rounded mx-auto d-block" src="/images/sign-blackDash.jpg" width="100" alt="bg signature" title="bg signature" />
+    </div>
+    <div style="line-height:50px;">
+        <br>
+    </div>
+
+    <!--footer-->
+    <div id="footer" class="text-center">
+        <span style="font-size: 30px; color: white;">
+            <a style="text-decoration:none" href="https://www.instagram.com/brittanygiven/" class="fab fa-instagram"> </a>
+            <a style="text-decoration:none" href="https://www.linkedin.com/in/brittanygiven/" class="fab fa-linkedin"> </a>
+        </span>
+    </div>
+
+    <!--This code references different script libraries to make your page responsive -->
+    <script src="~/lib/jquery/jquery.js"></script>
+    <script src="~/lib/twitter-bootstrap/js/bootstrap.bundle.js"></script>
+    <script src="~/lib/jquery-validate/jquery.validate.min.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.min.js"></script>
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
